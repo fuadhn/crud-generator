@@ -577,3 +577,86 @@ in SYSTEMPATH\Database\Forge.php on line 534.
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-11 15:02:18 --> Undefined property: App\Controllers\Home::$db
+in APPPATH\Controllers\Home.php on line 23.
+ 1 APPPATH\Controllers\Home.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Home::$db', 'APPPATH\\Controllers\\Home.php', 23, [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-11 15:02:52 --> Undefined property: App\Controllers\Home::$db
+in APPPATH\Controllers\Home.php on line 23.
+ 1 APPPATH\Controllers\Home.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Home::$db', 'APPPATH\\Controllers\\Home.php', 23, [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-11 15:03:24 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::list_fields()
+in APPPATH\Controllers\Home.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-01-11 15:15:13 --> mysqli_sql_exception: Table 'db_crud_generator.table_name' doesn't exist in C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php(295): mysqli->query('SHOW INDEX FROM...', 0)
+#1 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SHOW INDEX FROM...')
+#2 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SHOW INDEX FROM...')
+#3 C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php(444): CodeIgniter\Database\BaseConnection->query('SHOW INDEX FROM...')
+#4 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(1532): CodeIgniter\Database\MySQLi\Connection->_indexData('`table_name`')
+#5 C:\xampp\htdocs\crud-generator\app\Controllers\Home.php(29): CodeIgniter\Database\BaseConnection->getIndexData('table_name')
+#6 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\crud-generator\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\crud-generator\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-01-11 15:15:13 --> Table 'db_crud_generator.table_name' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(444): CodeIgniter\Database\BaseConnection->query('SHOW INDEX FROM `table_name`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(1532): CodeIgniter\Database\MySQLi\Connection->_indexData('`table_name`')
+ 3 APPPATH\Controllers\Home.php(29): CodeIgniter\Database\BaseConnection->getIndexData('table_name')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2023-01-11 15:15:16 --> mysqli_sql_exception: Table 'db_crud_generator.table_name' doesn't exist in C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php(295): mysqli->query('SHOW INDEX FROM...', 0)
+#1 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SHOW INDEX FROM...')
+#2 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SHOW INDEX FROM...')
+#3 C:\xampp\htdocs\crud-generator\system\Database\MySQLi\Connection.php(444): CodeIgniter\Database\BaseConnection->query('SHOW INDEX FROM...')
+#4 C:\xampp\htdocs\crud-generator\system\Database\BaseConnection.php(1532): CodeIgniter\Database\MySQLi\Connection->_indexData('`table_name`')
+#5 C:\xampp\htdocs\crud-generator\app\Controllers\Home.php(29): CodeIgniter\Database\BaseConnection->getIndexData('table_name')
+#6 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(934): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\crud-generator\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\crud-generator\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\crud-generator\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2023-01-11 15:15:16 --> Table 'db_crud_generator.table_name' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(444): CodeIgniter\Database\BaseConnection->query('SHOW INDEX FROM `table_name`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(1532): CodeIgniter\Database\MySQLi\Connection->_indexData('`table_name`')
+ 3 APPPATH\Controllers\Home.php(29): CodeIgniter\Database\BaseConnection->getIndexData('table_name')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-11 22:58:42 --> Undefined variable: table
+in APPPATH\Helpers\custom_helper.php on line 8.
+ 1 APPPATH\Helpers\custom_helper.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: table', 'APPPATH\\Helpers\\custom_helper.php', 8, [...])
+ 2 APPPATH\Views\builder.php(19): check_have_pk('pl_brands')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\builder.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('builder', [], true)
+ 6 APPPATH\Controllers\Builder.php(14): view('builder', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Builder->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Builder))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
