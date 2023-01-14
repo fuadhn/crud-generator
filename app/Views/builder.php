@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to KUCRUD</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -15,6 +16,7 @@
     <main class="p-10 pb-20">
         <div class="container max-w-6xl mx-auto">
             <h2 class="text-xl text-slate-900 mb-4">List of Tables</h2>
+            <?php if(count($tables) > 0) { ?>
             <?php foreach($tables as $table) { ?>
                 <?php if(check_have_pk($table) && check_have_fields($table)) { ?>
                 <div class="rounded-xl mb-4 border-[1px] border-blue-100">
@@ -166,13 +168,16 @@
                 </div>
                 <?php } ?>
             <?php } ?>
+            <?php } else { ?>
+            <p class="text-gray-600">No tables defined.</p>
+            <?php } ?>
         </div>
     </main>
     <footer class="fixed bottom-0 left-0 w-full bg-white py-4">
         <div class="container max-w-6xl mx-auto">
             <div class="flex justify-between gap-4 items-center">
                 <span id="label-selected-tables" class="ml-2 text-gray-700">0/0 table(s) selected.</span>
-                <button id="generate-crud" type="button" class="bg-blue-600 py-2 px-6 rounded text-white font-semibold">Generate CRUD</button>
+                <button id="generate-crud" type="button" class="<?php echo (count($tables) > 0 ? 'bg-blue-600' : 'bg-gray-400'); ?> py-2 px-6 rounded text-white font-semibold" <?php echo (count($tables) > 0 ? '' : 'disabled="disabled"'); ?>>Generate CRUD</button>
             </div>
         </div>
     </footer>
