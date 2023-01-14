@@ -353,7 +353,7 @@
 
                             $.ajax({
                                 method: 'POST',
-                                url: '<?php echo site_url('builder/create'); ?>',
+                                url: '<?php echo site_url('generator/create'); ?>',
                                 data: _data,
                                 dataType: 'JSON',
                                 cache: false,
