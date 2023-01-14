@@ -168,6 +168,34 @@ class Builder extends BaseController
         fwrite($fp, $contents);
         fclose($fp);
 
+        // Remove nav before
+        $file = file_get_contents("./app/Views/default/navigation.php");
+        $start = strpos($file, "<!-- #start-" . $request->getPost('table') . ' -->');
+        $end = strpos($file, "<!-- #end-" . $request->getPost('table') . ' -->');
+        $length = $end-$start+strlen("<!-- #end-" . $request->getPost('table') . ' -->');
+
+        if(strpos($file, "<!-- #start-" . $request->getPost('table') . ' -->') !== false && strpos($file, "<!-- #end-" . $request->getPost('table') . ' -->') !== false) {
+            $file = substr_replace($file, '', $start, $length);
+            file_put_contents("./app/Views/default/navigation.php", $file);
+        }
+
+        // Rewrite nav
+        $fp = fopen('./app/Views/default/navigation.php', 'a');
+        $contents = "<!-- #start-" . $request->getPost('table') . " -->
+        <li class=\"relative px-6 py-3\">
+        <a class=\"inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100\"
+            href=\"" . site_url($request->getPost('route')) . "\">
+            <svg class=\"w-5 h-5\" aria-hidden=\"true\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">
+            <path d=\"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"></path>
+            </svg>
+            <span class=\"ml-4\">" . $request->getPost('subject') . "</span>
+        </a>
+        </li>
+        <!-- #end-" . $request->getPost('table') . " -->";
+
+        fwrite($fp, $contents);
+        fclose($fp);
+
         $response['url'] = site_url($request->getPost('route'));
 
         echo json_encode($response);
