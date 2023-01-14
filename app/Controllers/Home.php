@@ -8,7 +8,7 @@ class Home extends BaseController
     {
         $output = [
             'css_files' => array(),
-            'title' => 'Demo KUCRUD',
+            'title' => 'Welcome to KUCRUD',
             'subtitle' => 'KUCRUD is a free no-code PHP CodeIgniter CRUD generator from database.',
             'output' => NULL,
             'js_files' => array(),
