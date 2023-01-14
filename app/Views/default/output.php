@@ -4,52 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KUCRUD | KUCRUD is a free no-code PHP CodeIgniter CRUD generator from database.</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="<?php echo base_url('/public/themes/public'); ?>/assets/css/tailwind.output.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
 
     <?php foreach($css_files as $file): ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
     <?php endforeach; ?>
   </head>
   <body>
-    <div
-      class="flex h-screen bg-gray-50 dark:bg-gray-900"
-      :class="{ 'overflow-hidden': isSideMenuOpen }"
-    >
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
       <!-- Desktop sidebar -->
-      <aside
-        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
-      >
+      <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="<?php echo site_url(); ?>"
-          >
-            KUCRUD
-          </a>
+          <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="<?php echo site_url(); ?>">KUCRUD</a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="<?php echo site_url('builder'); ?>"
-              >
+              <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                href="<?php echo site_url('builder'); ?>" target="_blank">
                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
                 </svg>
                 <span class="ml-4">Builder</span>
               </a>
             </li>
+
+            <?php echo view('default/navigation'); ?>
           </ul>
         </div>
       </aside>
@@ -65,6 +45,7 @@
         x-transition:leave-end="opacity-0"
         class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
       ></div>
+      
       <aside
         class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
         x-show="isSideMenuOpen"
@@ -75,42 +56,32 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0 transform -translate-x-20"
         @click.away="closeSideMenu"
-        @keydown.escape="closeSideMenu"
-      >
+        @keydown.escape="closeSideMenu">
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <a
-            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="<?php echo site_url(); ?>"
-          >
-            KUCRUD
-          </a>
+          <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="<?php echo site_url(); ?>">KUCRUD</a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="<?php echo site_url('builder'); ?>"
-              >
+              <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                href="<?php echo site_url('builder'); ?>" target="_blank">
                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
                 </svg>
                 <span class="ml-4">Builder</span>
               </a>
             </li>
+            
+            <?php echo view('default/navigation'); ?>
           </ul>
         </div>
       </aside>
       <div class="flex flex-col flex-1 w-full">
-        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+        <header class="z-10 py-4 bg-white shadow-md">
           <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
+            class="container flex items-center justify-between h-full px-6 mx-auto text-dark-600 dark:text-dark-300"
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-dark"
               @click="toggleSideMenu"
               aria-label="Menu"
             >
@@ -135,7 +106,7 @@
               <!-- Profile menu -->
               <li class="relative">
                 <button
-                  class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
+                  class="align-middle rounded-full focus:shadow-outline-dark focus:outline-none"
                   @click="toggleProfileMenu"
                   @keydown.escape="closeProfileMenu"
                   aria-label="Account"
@@ -189,7 +160,7 @@
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto grid">
             <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              class="my-6 text-2xl font-semibold text-gray-700"
             >
               <?php echo $title; ?>
             </h2>
