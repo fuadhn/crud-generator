@@ -104,6 +104,10 @@ class Generator extends BaseController
                     continue;
                 }
 
+                if(!in_array($field, $fields)) {
+                    continue;
+                }
+
                 $str_required_fields .= "'" . $required_field . "'" . ($i==count($required_fields) ? "" : ",");
 
                 $i++;
@@ -120,6 +124,10 @@ class Generator extends BaseController
             $str_unique_fields = "";
             foreach($unique_fields as $unique_field) {
                 if(in_array($field, $auto_increment)) {
+                    continue;
+                }
+
+                if(!in_array($field, $fields)) {
                     continue;
                 }
                 

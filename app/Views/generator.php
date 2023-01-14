@@ -243,7 +243,7 @@
                         // _generate_btn.attr('disabled', 'disabled');
                         // _generate_btn.html('Please wait..');
 
-                        _generate_btn.after('<a href="" type="button" class="bg-gray-600 py-2 px-6 rounded text-white font-semibold">Reset</a>');
+                        _generate_btn.after('<a href="" type="button" class="bg-gray-600 py-2 px-6 rounded text-white font-semibold">Back</a>');
                         _generate_btn.remove();
 
                         $('.toggle-accordion:checked').each(function() {
