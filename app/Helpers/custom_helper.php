@@ -92,7 +92,7 @@ if(!function_exists('get_html_keys')) {
                 $html .= '<h5 class="font-semibold">' . $type . '</h5>';
 
                 if($type == 'PRIMARY') {
-                    $html .= '<input type="checkbox" name="auto_increment_' . $field . '" value="1" />&nbsp;<span>Is auto increment?</span>';
+                    $html .= '<input type="checkbox" name="auto_increment_' . $field . '" class="auto_increment_' . $table . '" value="1" data-field="' . $field . '" />&nbsp;<span>Is auto increment?</span>';
                 }
 
                 $html .= '</div>';

@@ -72,6 +72,8 @@ class Builder extends BaseController
             $contents .= "\t\t\t\t\$crud->columns([" . $str_columns . "]);\n";
         }
 
+        $auto_increment = (array) $request->getPost('auto_increment');
+
         // Fields
         $fields = (array) $request->getPost('fields');
 
@@ -79,6 +81,10 @@ class Builder extends BaseController
             $i=1;
             $str_fields = "";
             foreach($fields as $field) {
+                if(in_array($field, $auto_increment)) {
+                    continue;
+                }
+
                 $str_fields .= "'" . $field . "'" . ($i==count($fields) ? "" : ",");
 
                 $i++;
@@ -94,6 +100,10 @@ class Builder extends BaseController
             $i=1;
             $str_required_fields = "";
             foreach($required_fields as $required_field) {
+                if(in_array($field, $auto_increment)) {
+                    continue;
+                }
+
                 $str_required_fields .= "'" . $required_field . "'" . ($i==count($required_fields) ? "" : ",");
 
                 $i++;
@@ -109,6 +119,10 @@ class Builder extends BaseController
             $i=1;
             $str_unique_fields = "";
             foreach($unique_fields as $unique_field) {
+                if(in_array($field, $auto_increment)) {
+                    continue;
+                }
+                
                 $str_unique_fields .= "'" . $unique_field . "'" . ($i==count($unique_fields) ? "" : ",");
 
                 $i++;
@@ -118,6 +132,7 @@ class Builder extends BaseController
         }
 
         $contents .= "\n\t\t\t\t\$output = \$crud->render();
+                \$output->title = '" . $request->getPost('subject') . "';
 
                 return \$this->_output(\$output);
             }
