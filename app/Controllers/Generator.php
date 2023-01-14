@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Builder extends BaseController
+class Generator extends BaseController
 {
     public function index()
     {
@@ -10,7 +10,7 @@ class Builder extends BaseController
 
         $tables = $db->listTables();
         
-        return view('builder', array(
+        return view('generator', array(
             'tables' => $tables
         ));
     }
