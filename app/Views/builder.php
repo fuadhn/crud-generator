@@ -172,7 +172,7 @@
         <div class="container max-w-6xl mx-auto">
             <div class="flex justify-between gap-4 items-center">
                 <span id="label-selected-tables" class="ml-2 text-gray-700">0/0 table(s) selected.</span>
-                <button id="generate-crud" type="button" class="bg-purple-600 py-2 px-6 rounded text-white font-semibold">Generate CRUD</button>
+                <button id="generate-crud" type="button" class="bg-blue-600 py-2 px-6 rounded text-white font-semibold">Generate CRUD</button>
             </div>
         </div>
     </footer>
@@ -238,7 +238,7 @@
                         // _generate_btn.attr('disabled', 'disabled');
                         // _generate_btn.html('Please wait..');
 
-                        _generate_btn.after('<a href="" type="button" class="bg-purple-600 py-2 px-6 rounded text-white font-semibold">Reset</a>');
+                        _generate_btn.after('<a href="" type="button" class="bg-gray-600 py-2 px-6 rounded text-white font-semibold">Reset</a>');
                         _generate_btn.remove();
 
                         $('.toggle-accordion:checked').each(function() {
@@ -260,6 +260,7 @@
                             var _fields = [];
                             var _required_fields = [];
                             var _unique_fields = [];
+                            var _ai_fields = [];
 
                             if($('.set_relation_' + _table).length) {
                                 $('.set_relation_' + _table).each(function() {
@@ -323,6 +324,14 @@
                                 })
                             }
 
+                            if($('.auto_increment_' + _table).length) {
+                                $('.auto_increment_' + _table + ':checked').each(function() {
+                                    var _field = $(this).data('field');
+
+                                    _ai_fields.push(_field);
+                                })
+                            }
+
                             var _data = {
                                 'table': _table,
                                 'subject': _subject,
@@ -334,6 +343,7 @@
                                 'fields': _fields,
                                 'required_fields': _required_fields,
                                 'unique_fields': _unique_fields,
+                                'auto_increment': _ai_fields,
                             };
 
                             $.ajax({
