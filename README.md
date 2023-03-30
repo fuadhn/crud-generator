@@ -6,3 +6,5 @@ KUCRUD is a CodeIgniter starter project to save your time. Uses the Grocery CRUD
 - Create a database.
 - Open the database configuration by editing the [app/Config/Database.php file](https://github.com/fuadhn/crud-generator/blob/main/app/Config/Database.php).
 - CRUD Generator is ready to save you time.
+
+Now is the time to simplify each of your jobs, there are still many other jobs waiting :)
