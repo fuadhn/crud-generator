@@ -179,8 +179,8 @@
         </header>
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto grid">
-            <h2 class="my-6 mb-1 text-2xl font-semibold text-gray-700"><?php echo $title; ?></h2>
-            <p class="text-gray-500"><?php echo $subtitle; ?></p>
+            <h2 class="my-6 mb-1 text-2xl font-semibold text-gray-700"><?php echo (isset($title) ? $title : ''); ?></h2>
+            <p class="text-gray-500"><?php echo (isset($subtitle) ? $subtitle : ''); ?></p>
 
             <?php echo $output; ?>
           </div>
